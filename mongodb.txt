@@ -1,0 +1,21 @@
+create database:
+	use <DATABASE_NAME>
+	use myGame
+	
+create collection:
+	db.createCollection("account");
+	db.createCollection("progress");
+	
+add document:
+	db.account.insert({username:"bob',password:"pass"});
+	db.progress.insert({username:"bob",level:123,questComplete:['myQuest','myQuest2']});
+	
+read document:
+	db.<COLLECTION>.find(<MUST MATCH>);
+	db.progress.find({username:"bob"});
+	db.progress.find({username:"bob"},{level:1});
+	
+update:
+	db.<COLLECTION>.update(<MUST MATCH>,{$set:<NEW VALUES>});
+	db.progress.update({username:"bob"},{$set:{level:99}});
+	
